@@ -21,8 +21,8 @@ void AddItem(ItemToPurchase item);
 void RemoveItem(ItemToPurchase item);
 void ModifyItem(ItemToPurchase item);
 
-void GetNumItemsInCart();
-void GetCostOfCart();
+int GetNumItemsInCart();
+int GetCostOfCart();
 
 void PrintTotal();
 void PrintDescriptions();
