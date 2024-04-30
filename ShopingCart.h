@@ -22,7 +22,7 @@ void RemoveItem(ItemToPurchase item);
 void ModifyItem(ItemToPurchase item);
 
 void GetNumItemsInCart();
-void GetCostOfCart();
+int GetCostOfCart();
 
 void PrintTotal();
 void PrintDescriptions();
