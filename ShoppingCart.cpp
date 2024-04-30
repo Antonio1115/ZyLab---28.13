@@ -42,8 +42,8 @@ void ShoppingCart::ModifyItem(ItemToPurchase item){
     }
 
 }
-void ShoppingCart::GetNumItemsInCart(){
-    cout << cartItems.size() << endl;
+int ShoppingCart::GetNumItemsInCart(){
+    return cartItems.size();
 }
 int ShoppingCart::GetCostOfCart(){
 
