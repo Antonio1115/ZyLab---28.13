@@ -6,34 +6,36 @@
 #include <string>
 using namespace std;
  
- class ItemToPurchase {
+class ItemToPurchase {
 
-public:
+    public:
 
-    ItemToPurchase(string userName, string userDescription = "none", int userPrice = 0, int userQuantity = 0);
-    ItemToPurchase(string userName = "none", int userPrice = 0, int userQuantity = 0);
-   
-   void SetPrice(int userPrice);
-   void SetName(string userName);
-   void SetQuantity(int userQuantity); 
-   void SetDescription(string userDescription);
-   
-    int GetPrice();
-    string GetName();
-    int GetQuantity();
-    string GetDescription();
-
-    void PrintItemCost();
-    void PrintItemDescription();
-
-
+        ItemToPurchase(string userName, string userDescription = "none", int userPrice = 0, int userQuantity = 0);
+        ItemToPurchase(string userName = "none", int userPrice = 0, int userQuantity = 0);
     
-private:
+        void SetPrice(int userPrice);
+        void SetName(string userName);
+        void SetQuantity(int userQuantity); 
+        void SetDescription(string userDescription);
+    
+        int GetPrice();
+        string GetName();
+        int GetQuantity();
+        string GetDescription();
+        int GetCost();
 
-    string name;
-    int price;
-    int quantity;
-    string description;
+        void PrintItemCost();
+        void PrintItemDescription();
+
+
+
+    private:
+
+        string name;
+        int price;
+        int quantity;
+        int cost = price*quantity;
+        string description;
 
  };
 
