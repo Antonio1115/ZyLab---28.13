@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-#include "ShoppingCart.h"
+#include "ShopingCart.h"
 
 ShoppingCart::ShoppingCart(string customerName, string customerDate){
     this->customerName = customerName;
