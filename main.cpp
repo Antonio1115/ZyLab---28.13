@@ -92,18 +92,15 @@ int main() {
     PrintMenu();
     cout << "Choose an option:" << endl;
     cin >> option;
-    cin.ignore(); // Clear the newline character from the buffer
     while(option != 'a' && option != 'd' && option != 'c' && option != 'i' && option != 'o' && option != 'q'){
       cout << "Choose an option:" << endl;
       cin >> option;
-      cin.ignore(); 
     }  
     while (option != 'q') {
       ExecuteMenu(option, SC);
       PrintMenu();
       cout << "Choose an option:" << endl;
       cin >> option;
-      cin.ignore(); 
     }
     return 0;
 }
