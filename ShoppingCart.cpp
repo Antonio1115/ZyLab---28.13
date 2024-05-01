@@ -1,55 +1,65 @@
-/* Type your code here */
-#include <iostream>
-using namespace std;
-
 #include "ShopingCart.h"
+#include <iostream>
+#include <algorithm>
 
-ShoppingCart::ShoppingCart(string customerName, string customerDate){
-    this->customerName = customerName;
-    this->currentDate = customerDate;
-}
+ShoppingCart::ShoppingCart(std::string customerName, std::string customerDate)
+    : customerName(customerName), currentDate(customerDate) {}
 
-string ShoppingCart::GetCustomerName(){
+std::string ShoppingCart::GetCustomerName() {
     return customerName;
 }
-string ShoppingCart::GetDate(){
+
+std::string ShoppingCart::GetDate() {
     return currentDate;
 }
-void ShoppingCart::AddItem(ItemToPurchase item){
+
+void ShoppingCart::AddItem(ItemToPurchase item) {
     cartItems.push_back(item);
 }
-void ShoppingCart::RemoveItem(ItemToPurchase item){
-    auto findItem = find(cartItems.begin(),cartItems.end(), item);
 
-    if(findItem != cartItems.end()){
-        cartItems.erase(findItem);
-    }else{
-        cout << "Item not found in cart. Nothing removed." << endl;
+void ShoppingCart::RemoveItem(std::string itemName) {
+    auto iter = std::remove_if(cartItems.begin(), cartItems.end(),
+                               [&itemName](const ItemToPurchase& item) { return item.GetName() == itemName; });
+    if (iter != cartItems.end()) {
+        cartItems.erase(iter, cartItems.end());
+        std::cout << "Item" << itemName << " removed from cart." << std::endl;
+    } else {
+        std::cout << "Item" << " not found in cart. Nothing removed." << std::endl;
     }
 }
-void ShoppingCart::ModifyItem(ItemToPurchase item){
 
-    auto findItem = find(cartItems.begin(),cartItems.end(), item);
-
-    if(findItem != cartItems.end()){
-        if(item.GetName() == "none"){
-           
-            // Figure out later
-
-        }
-    }else{
-        cout << "Item not found in cart. Nothing modified." << endl;
+void ShoppingCart::ModifyItem(std::string itemName, int newQuantity) {
+    auto iter = std::find_if(cartItems.begin(), cartItems.end(),
+                             [&itemName](const ItemToPurchase& item) { return item.GetName() == itemName; });
+    if (iter != cartItems.end()) {
+        iter->SetQuantity(newQuantity);
+        std::cout << "Item \"" << itemName << "\" quantity modified to " << newQuantity << "." << std::endl;
+    } else {
+        std::cout << "Item" << " not found in cart. Nothing modified." << std::endl;
     }
-
 }
-int ShoppingCart::GetNumItemsInCart(){
+
+int ShoppingCart::GetNumItemsInCart() {
     return cartItems.size();
 }
-int ShoppingCart::GetCostOfCart(){
-    int totalCost = 0;
 
-    for(int i = 0; i < cartItems.size(); i ++){
-        totalCost += cartItems.at(i).GetPrice();
+int ShoppingCart::GetCostOfCart() {
+    int totalCost = 0;
+    for(int i = 0; i < GetNumItemsInCart(); i++){
+       totalCost += cartItems.at(i).GetCost();
     }
     return totalCost;
+}
+
+void ShoppingCart::PrintTotal() {
+    for (auto& entry : cartItems) {
+        entry.PrintItemCost();
+    }
+    std::cout << "Total: $" << GetCostOfCart() << std::endl;
+}
+
+void ShoppingCart::PrintDescriptions() {
+    for (auto& entry : cartItems) {
+        entry.PrintItemDescription();
+    }
 }
