@@ -23,9 +23,8 @@ void ExecuteMenu(char option, ShoppingCart& SC) {
         cout << "Number of Items: " << SC.GetNumItemsInCart() << endl;
         if(SC.GetNumItemsInCart() == 0){
            cout << endl;
-           cout << "SHOPPING CART IS EMPTY" << endl;
+           cout << "SHOPPING CART IS EMPTY";
         }
-      cout << endl;
         SC.PrintTotal();
         cout << endl;
     }
@@ -53,6 +52,7 @@ void ExecuteMenu(char option, ShoppingCart& SC) {
         cin >> price;
         item.SetPrice(price);
         cout << "Enter the item quantity:" << endl;
+        cout << endl;
         cin >> quantity;
         item.SetQuantity(quantity);
         SC.AddItem(item);

@@ -22,7 +22,7 @@ void ShoppingCart::RemoveItem(std::string itemName) {
                                [&itemName](const ItemToPurchase& item) { return item.GetName() == itemName; });
     if (iter != cartItems.end()) {
         cartItems.erase(iter, cartItems.end());
-        std::cout << "Item" << itemName << " removed from cart." << std::endl;
+        cout << endl;
     } else {
         std::cout << "Item" << " not found in cart. Nothing removed." << std::endl;
         cout << endl;
@@ -37,6 +37,7 @@ void ShoppingCart::ModifyItem(std::string itemName, int newQuantity) {
         std::cout << "Item \"" << itemName << "\" quantity modified to " << newQuantity << "." << std::endl;
     } else {
         std::cout << "Item" << " not found in cart. Nothing modified." << std::endl;
+        cout << endl;
     }
 }
 
@@ -57,9 +58,11 @@ int ShoppingCart::GetCostOfCart() {
 }
 
 void ShoppingCart::PrintTotal() {
+    cout << endl;
     for (auto& entry : cartItems) {
         entry.PrintItemCost();
     }
+    cout << endl;
     std::cout << "Total: $" << GetCostOfCart() << std::endl;
 }
 
