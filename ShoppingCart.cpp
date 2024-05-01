@@ -45,8 +45,8 @@ int ShoppingCart::GetNumItemsInCart() {
 
 int ShoppingCart::GetCostOfCart() {
     int totalCost = 0;
-    for(int i = 0; i < GetNumItemsInCart(); i++){
-       totalCost += cartItems.at(i).GetCost();
+    for (ItemToPurchase item : cartItems) {
+        totalCost += item.GetPrice() * item.GetQuantity();
     }
     return totalCost;
 }
