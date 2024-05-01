@@ -29,6 +29,10 @@ using namespace std;
     void ItemToPurchase::SetQuantity(int userQuantity){
       this->quantity = userQuantity;
     }
+
+    void ItemToPurchase::SetCost(int userPrice, int userQuantity){
+      cost = userPrice*userQuantity;
+    }
     void ItemToPurchase::SetDescription(string userDescription){
     this->description = userDescription;
     }
