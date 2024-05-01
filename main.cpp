@@ -24,7 +24,6 @@ void ExecuteMenu(char option, ShoppingCart& SC) {
         if(SC.GetNumItemsInCart() == 0){
            cout << endl;
            cout << "SHOPPING CART IS EMPTY" << endl;
-           cout << endl;
         }
         SC.PrintTotal();
         cout << endl;
