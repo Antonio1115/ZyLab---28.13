@@ -25,7 +25,9 @@ void ShoppingCart::RemoveItem(std::string itemName) {
         cout << endl;
     } else {
         std::cout << "Item" << " not found in cart. Nothing removed." << std::endl;
-        cout << endl;
+        cout << endl;=====
+        cout << std::endl;
+
     }
 }
 
