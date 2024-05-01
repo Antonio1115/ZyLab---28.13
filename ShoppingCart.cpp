@@ -25,6 +25,7 @@ void ShoppingCart::RemoveItem(std::string itemName) {
         std::cout << "Item" << itemName << " removed from cart." << std::endl;
     } else {
         std::cout << "Item" << " not found in cart. Nothing removed." << std::endl;
+        cout << std::endl;
     }
 }
 
@@ -44,9 +45,9 @@ int ShoppingCart::GetNumItemsInCart() {
 }
 
 int ShoppingCart::GetCostOfCart() {
-    int totalCost = 0;
-    for(int i = 0; i < GetNumItemsInCart(); i++){
-       totalCost += cartItems.at(i).GetCost();
+     int totalCost = 0;
+    for (ItemToPurchase item : cartItems) {
+        totalCost += item.GetPrice() * item.GetQuantity();
     }
     return totalCost;
 }
