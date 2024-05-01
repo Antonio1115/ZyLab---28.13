@@ -49,7 +49,7 @@ using namespace std;
         return description;
     }
     void ItemToPurchase::PrintItemCost() {
-    std::cout << name << ": $" << price << std::endl;
+    std::cout << name << " " << quantity << " @ $" << price << " = $"  << quantity*price << std::endl;
    }
 
    void ItemToPurchase::PrintItemDescription() {
