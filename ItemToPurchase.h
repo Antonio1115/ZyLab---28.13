@@ -16,12 +16,14 @@ class ItemToPurchase {
         void SetPrice(int userPrice);
         void SetName(string userName);
         void SetQuantity(int userQuantity); 
+        void SetCost(int userPrice, int userQuantity);
         void SetDescription(string userDescription);
     
         int GetPrice();
         string GetName();
         int GetQuantity();
         string GetDescription();
+
         int GetCost();
 
         void PrintItemCost();
@@ -34,7 +36,7 @@ class ItemToPurchase {
         string name;
         int price;
         int quantity;
-        int cost = price*quantity;
+        int cost;
         string description;
 
  };
