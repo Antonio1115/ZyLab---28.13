@@ -1,41 +1,32 @@
-/* Type your code here */
-
 #ifndef SHOPPING_CART_H
 #define SHOPPING_CART_H
 
 #include <string>
 #include <vector>
 #include "ItemToPurchase.h"
-using namespace std;
 
-class ShoppingCart{
-
+class ShoppingCart {
 public:
+    ShoppingCart(std::string customerName = "none", std::string customerDate = "January 1, 2016");
 
-ShoppingCart(string customerName = "none", string customerDate = "January 1, 2016");
+    std::string GetCustomerName();
+    std::string GetDate();
 
-string GetCustomerName();
-string GetDate();
+    void AddItem(ItemToPurchase item);
+    void RemoveItem(std::string itemName);
+    void ModifyItem(std::string itemName, int newQuantity);
 
-void AddItem(ItemToPurchase item);
-void RemoveItem(ItemToPurchase item);
-void ModifyItem(ItemToPurchase item);
+    int GetNumItemsInCart();
+    int GetCostOfCart();
+    void PrintTotal();
+    void PrintDescriptions();
 
-int GetNumItemsInCart();
-int GetCostOfCart();
-
-void PrintTotal();
-void PrintDescriptions();
-
-
-
+    std::vector<ItemToPurchase> GetCartItems() { return cartItems; }
 
 private:
-
-    string customerName;
-    string currentDate;
-    vector<ItemToPurchase> cartItems;
-
+    std::string customerName;
+    std::string currentDate;
+    std::vector<ItemToPurchase> cartItems;
 };
 
 #endif
