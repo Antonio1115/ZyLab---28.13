@@ -41,7 +41,11 @@ void ShoppingCart::ModifyItem(std::string itemName, int newQuantity) {
 }
 
 int ShoppingCart::GetNumItemsInCart() {
-    return cartItems.size();
+    int totalItems = 0;
+    for (ItemToPurchase item : cartItems) {
+        totalItems += item.GetQuantity();
+    }
+    return totalItems;
 }
 
 int ShoppingCart::GetCostOfCart() {
