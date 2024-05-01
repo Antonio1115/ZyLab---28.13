@@ -32,8 +32,10 @@ void ExecuteMenu(char option, ShoppingCart& SC) {
     else if (option == 'i') {
         cout << "OUTPUT ITEMS' DESCRIPTIONS" << endl;
         cout << SC.GetCustomerName() << "'s Shopping Cart - " << SC.GetDate() << endl;
+        cout << endl;
         cout << "Item Descriptions" << endl;
         SC.PrintDescriptions();
+        cout << endl;
     }
     else if (option == 'a') {
         ItemToPurchase item;
