@@ -23,8 +23,7 @@ void ExecuteMenu(char option, ShoppingCart& SC) {
         cout << "Number of Items: " << SC.GetNumItemsInCart() << endl;
         if(SC.GetNumItemsInCart() == 0){
            cout << endl;
-           cout << "SHOPPING CART IS EMPTY" << endl;
-           cout << endl;
+           cout << "SHOPPING CART IS EMPTY";
         }
         SC.PrintTotal();
         cout << endl;
@@ -32,8 +31,10 @@ void ExecuteMenu(char option, ShoppingCart& SC) {
     else if (option == 'i') {
         cout << "OUTPUT ITEMS' DESCRIPTIONS" << endl;
         cout << SC.GetCustomerName() << "'s Shopping Cart - " << SC.GetDate() << endl;
+        cout << endl;
         cout << "Item Descriptions" << endl;
         SC.PrintDescriptions();
+        cout << endl;
     }
     else if (option == 'a') {
         ItemToPurchase item;
@@ -51,6 +52,7 @@ void ExecuteMenu(char option, ShoppingCart& SC) {
         cin >> price;
         item.SetPrice(price);
         cout << "Enter the item quantity:" << endl;
+        cout << endl;
         cin >> quantity;
         item.SetQuantity(quantity);
         SC.AddItem(item);
@@ -91,18 +93,15 @@ int main() {
     PrintMenu();
     cout << "Choose an option:" << endl;
     cin >> option;
-    cin.ignore(); // Clear the newline character from the buffer
     while(option != 'a' && option != 'd' && option != 'c' && option != 'i' && option != 'o' && option != 'q'){
       cout << "Choose an option:" << endl;
       cin >> option;
-      cin.ignore(); 
     }  
     while (option != 'q') {
       ExecuteMenu(option, SC);
       PrintMenu();
       cout << "Choose an option:" << endl;
       cin >> option;
-      cin.ignore(); 
     }
     return 0;
 }
