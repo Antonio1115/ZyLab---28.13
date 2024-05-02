@@ -5,6 +5,8 @@
 
 using namespace std;
 
+//Antonio Flores, Pierre Martinez
+
 void PrintMenu() {
     cout << "MENU" << endl;
     cout << "a - Add item to cart" << endl;
